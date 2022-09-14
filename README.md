@@ -9,7 +9,7 @@ run
 npm install
 npm start
 
-
+NOTE: I apologize for doing this in plain js, I accidentally overlooked the TypeScript component of this. Though by time I remembered I did not have enough time to refactor the app to tsx.
 
 TECHNICAL QUESTIONS:
 
