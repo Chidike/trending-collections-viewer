@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+RUN INSTRUCTIONS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+On a system running Node.js and the npm cli
 
-## Available Scripts
+in the trend-collections-viewer folder
 
-In the project directory, you can run:
+run
 
-### `npm start`
+npm install
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+TECHNICAL QUESTIONS:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Handles user authentication: I would opt to use something like Auth0 that way I would have the choice between their hosted cloud database or my own external database. The schema of the database would include name, email, user_id, an encrypted password field, and a boolean determining whether the account has been verfied or not. If my project is well defined and my schema wasn't changing much would opt for an SQL database. If the team was high growth and the project was more open ended I would prefer a NoSQL database for scalability and performance.
 
-### `npm run build`
+Serves data to the client via an API: If it were a system that did not have to utiize a lot of caching I would prefer to use GraphQL as it makes it very easy to write queries, also it gives you only the information you want so there are some performance benefits,
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Scales to handle thousands of requests per second: Caching can be utilized to make data retrieval quicker as less information needs to be pulled via the API's. If the system were using a RESTFUL API I would consider using something like GraphQL, this way only the information that is absolutely needed is being pulled and we are not wasting time fetching unecessary data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Provide real-time updates to clients as new data is available: I would achieve this with use of state management and the React lifecycle methods the view will be updated when the state is updated.
